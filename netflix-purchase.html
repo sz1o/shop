@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase - Netflix | Freaks Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="animated-background"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Freaks Shop</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="purchase-page">
+        <div class="purchase-page-header">
+            <a href="netflix.html" class="purchase-back">← Back</a>
+            <p class="purchase-discord">Problems? Join our <a href="https://discord.gg/JBKNk8PwbP" target="_blank" rel="noopener">Discord</a>!</p>
+        </div>
+
+        <p class="purchase-summary">What you're buying: <strong>Netflix (Premium)</strong></p>
+
+        <div class="payment-options" id="payment-options">
+            <a href="#" class="payment-box" id="payment-cashapp">
+                <img src="cashapp.png" alt="CashApp">
+                <span class="payment-label">CashApp</span>
+                <span class="payment-price">$1</span>
+                <span class="payment-note">CashApp minimum is $1</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="tos-modal-overlay" id="tos-modal" style="display: none;">
+        <div class="tos-modal">
+            <h3>TOS — Please read the TOS. It's important.</h3>
+            <a href="roblox-tos.html" target="_blank" class="read-tos-link">Read TOS!</a>
+            <p><strong>1. Name On Account.</strong> I am not refunding this purchase because of the name. If you do not like the name of the account you are getting, that sucks for you. I do not care if you get a good/bad name. Do NOT dm me about refunding because of your name.</p>
+            <p><strong>2. Refunds.</strong> Refunds — I will not allow for any reason: Names. If you are buying this, please PLEASE I can not beg you enough to screen record the purchase. If password and username does not work, and you don't record, I'm not giving a refund. Sorry.</p>
+            <p><strong>3.</strong> Yeah, that's really it. Have a good Day/Night! <img src="gato.png" alt="" class="gato-img" style="max-width:64px;vertical-align:middle;"></p>
+            <div class="tos-agree-row">
+                <input type="checkbox" id="tos-agree" />
+                <label for="tos-agree">Do you agree?</label>
+            </div>
+            <button type="button" class="goto-payment-btn" id="goto-payment-btn" disabled>Goto Payment</button>
+        </div>
+    </div>
+
+    <div class="cashapp-instruct-overlay" id="cashapp-instruct-modal" style="display: none;">
+        <div class="cashapp-instruct-modal">
+            <h3>How To Pay With CashApp</h3>
+            <ol>
+                <li>Get on CashApp ofc</li>
+                <li>Type in the cashtag <span class="cashtag">$cuddlykittenz</span></li>
+                <li>Make the Note: <strong>moonlight cat</strong> — use that note or it will be ignored.</li>
+            </ol>
+            <div class="copyable-note-wrap">
+                <span class="copyable-note-text" id="copyable-note" tabindex="0">moonlight cat</span>
+                <button type="button" class="copy-note-btn" id="copy-note-btn">Copy</button>
+            </div>
+            <p class="note-warning">Use that note or your payment will be ignored.</p>
+            <div class="pend-paid-row">
+                <button type="button" class="pend-btn" id="pend-btn">Pend (30)</button>
+                <button type="button" class="paid-btn-instruct" id="paid-btn-instruct">Paid</button>
+            </div>
+            <button type="button" class="close-instruct-btn" id="close-instruct-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        (function() {
+            var tosModal = document.getElementById('tos-modal');
+            var tosAgree = document.getElementById('tos-agree');
+            var gotoBtn = document.getElementById('goto-payment-btn');
+            var paymentCashapp = document.getElementById('payment-cashapp');
+            var cashappInstruct = document.getElementById('cashapp-instruct-modal');
+            var copyNote = document.getElementById('copyable-note');
+            var copyNoteBtn = document.getElementById('copy-note-btn');
+            var pendBtn = document.getElementById('pend-btn');
+            var paidBtnInstruct = document.getElementById('paid-btn-instruct');
+            var closeInstruct = document.getElementById('close-instruct-btn');
+
+            var tosAgreed = false;
+            var pendTimer = null;
+
+            tosAgree.addEventListener('change', function() {
+                gotoBtn.disabled = !tosAgree.checked;
+            });
+            gotoBtn.addEventListener('click', function() {
+                tosModal.style.display = 'none';
+                tosAgreed = true;
+            });
+
+            function openTosModal() {
+                tosAgree.checked = false;
+                gotoBtn.disabled = true;
+                tosModal.style.display = 'flex';
+            }
+
+            function openCashAppInstruct() {
+                if (pendTimer) clearInterval(pendTimer);
+                pendBtn.textContent = 'Pend (30)';
+                pendBtn.disabled = false;
+                paidBtnInstruct.classList.remove('highlighted');
+                copyNoteBtn.textContent = 'Copy';
+                copyNoteBtn.classList.remove('copied');
+                cashappInstruct.style.display = 'flex';
+            }
+
+            function closeCashAppInstruct() {
+                if (pendTimer) clearInterval(pendTimer);
+                cashappInstruct.style.display = 'none';
+            }
+
+            copyNoteBtn.addEventListener('click', function() {
+                var n = document.getElementById('copyable-note').textContent;
+                navigator.clipboard.writeText(n).then(function() {
+                    copyNoteBtn.textContent = 'Copied!';
+                    copyNoteBtn.classList.add('copied');
+                    setTimeout(function() {
+                        copyNoteBtn.textContent = 'Copy';
+                        copyNoteBtn.classList.remove('copied');
+                    }, 1500);
+                });
+            });
+
+            copyNote.addEventListener('click', function() {
+                var n = document.getElementById('copyable-note').textContent;
+                navigator.clipboard.writeText(n).then(function() {
+                    copyNoteBtn.textContent = 'Copied!';
+                    copyNoteBtn.classList.add('copied');
+                    setTimeout(function() {
+                        copyNoteBtn.textContent = 'Copy';
+                        copyNoteBtn.classList.remove('copied');
+                    }, 1500);
+                });
+            });
+
+            pendBtn.addEventListener('click', function() {
+                if (pendBtn.disabled) return;
+                pendBtn.disabled = true;
+                var sec = 30;
+                pendBtn.textContent = 'Pend (' + sec + ')';
+                pendTimer = setInterval(function() {
+                    sec--;
+                    pendBtn.textContent = 'Pend (' + sec + ')';
+                    if (sec <= 0) {
+                        clearInterval(pendTimer);
+                        pendTimer = null;
+                        pendBtn.textContent = 'Pend (0)';
+                        paidBtnInstruct.classList.add('highlighted');
+                    }
+                }, 1000);
+            });
+
+            paidBtnInstruct.addEventListener('click', closeCashAppInstruct);
+            closeInstruct.addEventListener('click', closeCashAppInstruct);
+
+            paymentCashapp.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (tosAgreed) {
+                    openCashAppInstruct();
+                } else {
+                    openTosModal();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
