@@ -11,7 +11,8 @@ async function loadProducts() {
         
         data.products.forEach(product => {
             const productBox = document.createElement('div');
-            productBox.className = 'product-box';
+            productBox.className = `product-box ${product.status === 'Coming Soon' ? 'coming-soon' : ''} animate-fadeInUp`;
+            productBox.style.animationDelay = `${index * 0.1}s`;
             productBox.setAttribute('data-product-id', product.id);
             
             // Create logo based on product
@@ -40,7 +41,7 @@ async function loadProducts() {
                 ${logoHTML}
                 <h2 class="product-title">${product.title}</h2>
                 <p class="product-subtitle">${product.subtitle}</p>
-                <p class="product-status">${product.status}</p>
+                <p class="product-status available">${product.status}</p>
             `;
             
             // Add click event to navigate to product page
@@ -65,34 +66,34 @@ async function loadProducts() {
         const productsGrid = document.getElementById('products-grid');
         if (productsGrid) {
             productsGrid.innerHTML = `
-                <div class="product-box" data-product="xbox">
+                <div class="product-box animate-fadeInUp" data-product="xbox" style="animation-delay: 0s;">
                     <div class="product-logo">
                         <img src="xbox.png" alt="Xbox Logo" class="product-image">
                     </div>
                     <h2 class="product-title">Xbox</h2>
                     <p class="product-subtitle">FRESH ACCOUNT</p>
-                    <p class="product-status">Available</p>
+                    <p class="product-status available">Available</p>
                 </div>
-                <div class="product-box" data-product="roblox">
+                <div class="product-box animate-fadeInUp" data-product="roblox" style="animation-delay: 0.1s;">
                     <div class="product-logo">
                         <img src="roblox-empty.png" alt="Roblox Logo" class="product-image">
                     </div>
                     <h2 class="product-title">Roblox</h2>
                     <p class="product-subtitle">Premium Account</p>
-                    <p class="product-status">Available</p>
+                    <p class="product-status available">Available</p>
                 </div>
-                <div class="product-box" data-product="netflix">
+                <div class="product-box animate-fadeInUp" data-product="netflix" style="animation-delay: 0.2s;">
                     <div class="product-logo">
                         <img src="netflix.png" alt="Netflix Logo" class="product-image">
                     </div>
                     <h2 class="product-title">Netflix</h2>
                     <p class="product-subtitle">Premium Subscription</p>
-                    <p class="product-status">Available</p>
+                    <p class="product-status available">Available</p>
                 </div>
-                <div class="product-box">
+                <div class="product-box animate-fadeInUp coming-soon" style="animation-delay: 0.3s;">
                     <h2 class="product-title">More Coming Soon!</h2>
                     <p class="product-subtitle">Stay Tuned</p>
-                    <p class="product-status">Coming Soon</p>
+                    <p class="product-status soon">Coming Soon</p>
                 </div>
             `;
             

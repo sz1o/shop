@@ -27,54 +27,72 @@
 
         <p class="purchase-summary">What you're buying: <strong>Netflix (Premium)</strong></p>
 
-        <div class="payment-options" id="payment-options">
-            <a href="#" class="payment-box" id="payment-cashapp">
+        <div class="email-payment-section animate-fadeInUp" style="animation-delay: 0.2s;">
+            <h3 class="section-title">Enter Your Email</h3>
+            <input type="email" id="customer-email" class="email-input" placeholder="your.email@example.com">
+            <p class="input-description">So we can respond to your purchase!</p>
+
+            <h3 class="section-title">What are you Paying with?</h3>
+            <div class="payment-selection">
+                <button type="button" class="select-payment-btn animate-pulse-glow" id="select-robux" data-method="robux">Robux</button>
+                <button type="button" class="select-payment-btn animate-pulse-glow" id="select-cashapp" data-method="cashapp">CashApp</button>
+            </div>
+            <p class="payment-selection-error" id="payment-selection-error" style="display: none;">Please enter your email and select a payment method.</p>
+        </div>
+
+        <div class="payment-options" id="payment-options" style="display: none;">
+            <a href="#" class="payment-box" id="payment-cashapp" data-method="cashapp">
                 <img src="cashapp.png" alt="CashApp">
                 <span class="payment-label">CashApp</span>
                 <span class="payment-price">$1</span>
                 <span class="payment-note">CashApp minimum is $1</span>
             </a>
-        </div>
-    </div>
-
-    <div class="tos-modal-overlay" id="tos-modal" style="display: none;">
-        <div class="tos-modal">
-            <h3>TOS — Please read the TOS. It's important.</h3>
-            <a href="roblox-tos.html" target="_blank" class="read-tos-link">Read TOS!</a>
-            <p><strong>1. Name On Account.</strong> I am not refunding this purchase because of the name. If you do not like the name of the account you are getting, that sucks for you. I do not care if you get a good/bad name. Do NOT dm me about refunding because of your name.</p>
-            <p><strong>2. Refunds.</strong> Refunds — I will not allow for any reason: Names. If you are buying this, please PLEASE I can not beg you enough to screen record the purchase. If password and username does not work, and you don't record, I'm not giving a refund. Sorry.</p>
-            <p><strong>3.</strong> Yeah, that's really it. Have a good Day/Night! <img src="gato.png" alt="" class="gato-img" style="max-width:64px;vertical-align:middle;"></p>
-            <div class="tos-agree-row">
-                <input type="checkbox" id="tos-agree" />
-                <label for="tos-agree">Do you agree?</label>
-            </div>
-            <button type="button" class="goto-payment-btn" id="goto-payment-btn" disabled>Goto Payment</button>
-        </div>
-    </div>
-
-    <div class="cashapp-instruct-overlay" id="cashapp-instruct-modal" style="display: none;">
-        <div class="cashapp-instruct-modal">
-            <h3>How To Pay With CashApp</h3>
-            <ol>
-                <li>Get on CashApp ofc</li>
-                <li>Type in the cashtag <span class="cashtag">$cuddlykittenz</span></li>
-                <li>Make the Note: <strong>moonlight cat</strong> — use that note or it will be ignored.</li>
-            </ol>
-            <div class="copyable-note-wrap">
-                <span class="copyable-note-text" id="copyable-note" tabindex="0">moonlight cat</span>
-                <button type="button" class="copy-note-btn" id="copy-note-btn">Copy</button>
-            </div>
-            <p class="note-warning">Use that note or your payment will be ignored.</p>
-            <div class="pend-paid-row">
-                <button type="button" class="pend-btn" id="pend-btn">Pend (30)</button>
-                <button type="button" class="paid-btn-instruct" id="paid-btn-instruct">Paid</button>
-            </div>
-            <button type="button" class="close-instruct-btn" id="close-instruct-btn">Close</button>
-        </div>
-    </div>
-
-    <script src="main.js"></script>
-    <script>
+            <a href="#" class="payment-box" id="payment-robux" data-method="robux">
+                <img src="robux.png" alt="Robux">
+                <span class="payment-label">Robux</span>
+                <span class="payment-price">—</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="tos-modal-overlay" id="tos-modal" style="display: none;">
+        <div class="tos-modal">
+            <h3>TOS — Please read the TOS. It's important.</h3>
+            <a href="roblox-tos.html" target="_blank" class="read-tos-link">Read TOS!</a>
+            <p><strong>1. Name On Account.</strong> I am not refunding this purchase because of the name. If you do not like the name of the account you are getting, that sucks for you. I do not care if you get a good/bad name. Do NOT dm me about refunding because of your name.</p>
+            <p><strong>2. Refunds.</strong> Refunds — I will not allow for any reason: Names. If you are buying this, please PLEASE I can not beg you enough to screen record the purchase. If password and username does not work, and you don't record, I'm not giving a refund. Sorry.</p>
+            <p><strong>3.</strong> Yeah, that's really it. Have a good Day/Night! <img src="gato.png" alt="" class="gato-img" style="max-width:64px;vertical-align:middle;"></p>
+            <div class="tos-agree-row">
+                <input type="checkbox" id="tos-agree" />
+                <label for="tos-agree">Do you agree?</label>
+            </div>
+            <button type="button" class="goto-payment-btn" id="goto-payment-btn" disabled>Goto Payment</button>
+        </div>
+    </div>
+
+    <div class="cashapp-instruct-overlay" id="cashapp-instruct-modal" style="display: none;">
+        <div class="cashapp-instruct-modal">
+            <h3>How To Pay With CashApp</h3>
+            <ol>
+                <li>Get on CashApp ofc</li>
+                <li>Type in the cashtag <span class="cashtag">$cuddlykittenz</span></li>
+                <li>Make the Note: <strong>moonlight cat</strong> — use that note or it will be ignored.</li>
+            </ol>
+            <div class="copyable-note-wrap">
+                <span class="copyable-note-text" id="copyable-note" tabindex="0">moonlight cat</span>
+                <button type="button" class="copy-note-btn" id="copy-note-btn">Copy</button>
+            </div>
+            <p class="note-warning">Use that note or your payment will be ignored.</p>
+            <div class="pend-paid-row">
+                <button type="button" class="pend-btn" id="pend-btn">Pend (30)</button>
+                <button type="button" class="paid-btn-instruct" id="paid-btn-instruct">Paid</button>
+            </div>
+            <button type="button" class="close-instruct-btn" id="close-instruct-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+<script>
         (function() {
             var tosModal = document.getElementById('tos-modal');
             var tosAgree = document.getElementById('tos-agree');
@@ -86,16 +104,60 @@
             var pendBtn = document.getElementById('pend-btn');
             var paidBtnInstruct = document.getElementById('paid-btn-instruct');
             var closeInstruct = document.getElementById('close-instruct-btn');
+            var customerEmail = document.getElementById('customer-email');
+            var selectRobuxBtn = document.getElementById('select-robux');
+            var selectCashappBtn = document.getElementById('select-cashapp');
+            var paymentSelectionError = document.getElementById('payment-selection-error');
 
             var tosAgreed = false;
             var pendTimer = null;
+            var selectedPaymentMethod = null;
+
+            // Netflix doesn't have year selection, so no 'p' or 'yearDisplay' logic needed here.
+
+            // Set fixed price for Netflix
+            var cashappPrice = document.getElementById('payment-cashapp').querySelector('.payment-price');
+            if (cashappPrice) cashappPrice.textContent = '$1'; // Assuming fixed $1 for Netflix
+
+            // Function to validate email
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            // Function to update payment options visibility
+            function updatePaymentOptionsVisibility() {
+                if (isValidEmail(customerEmail.value) && selectedPaymentMethod) {
+                    document.getElementById('payment-options').style.display = 'grid';
+                    paymentSelectionError.style.display = 'none';
+                } else {
+                    document.getElementById('payment-options').style.display = 'none';
+                }
+            }
+
+            // Event listeners for email input and payment selection
+            customerEmail.addEventListener('input', updatePaymentOptionsVisibility);
+
+            selectRobuxBtn.addEventListener('click', function() {
+                selectRobuxBtn.classList.add('selected');
+                selectCashappBtn.classList.remove('selected');
+                selectedPaymentMethod = 'robux';
+                updatePaymentOptionsVisibility();
+            });
+
+            selectCashappBtn.addEventListener('click', function() {
+                selectCashappBtn.classList.add('selected');
+                selectRobuxBtn.classList.remove('selected');
+                selectedPaymentMethod = 'cashapp';
+                updatePaymentOptionsVisibility();
+            });
 
             tosAgree.addEventListener('change', function() {
                 gotoBtn.disabled = !tosAgree.checked;
             });
+
             gotoBtn.addEventListener('click', function() {
                 tosModal.style.display = 'none';
-                tosAgreed = true;
+                tosAgreed = true; // Set tosAgreed to true after closing TOS modal
             });
 
             function openTosModal() {
@@ -160,18 +222,56 @@
                 }, 1000);
             });
 
-            paidBtnInstruct.addEventListener('click', closeCashAppInstruct);
+            paidBtnInstruct.addEventListener('click', function() {
+                closeCashAppInstruct();
+            });
+
             closeInstruct.addEventListener('click', closeCashAppInstruct);
 
+            // Modified paymentCashapp.addEventListener
             paymentCashapp.addEventListener('click', function(e) {
                 e.preventDefault();
-                if (tosAgreed) {
-                    openCashAppInstruct();
-                } else {
-                    openTosModal();
+                if (!isValidEmail(customerEmail.value) || !selectedPaymentMethod) {
+                    paymentSelectionError.style.display = 'block';
+                    return;
+                }
+                paymentSelectionError.style.display = 'none';
+
+                if (selectedPaymentMethod === 'cashapp') {
+                    if (tosAgreed) {
+                        var email = encodeURIComponent(customerEmail.value);
+                        var productTitle = 'Netflix'; // Specific product title
+                        window.location.href = `email.html?email=${email}&product=${productTitle}&method=cashapp`;
+                    } else {
+                        openTosModal();
+                    }
+                } else { // if robux is selected but cashapp button is clicked
+                    if (!tosAgreed) {
+                         openTosModal();
+                    }
+                }
+            });
+
+            // Modified paymentRobux.addEventListener
+            // Netflix only has CashApp payment, so Robux button click will just open TOS if not agreed.
+            // If TOS is agreed, it will effectively do nothing extra.
+            paymentRobux.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (!isValidEmail(customerEmail.value) || !selectedPaymentMethod) {
+                    paymentSelectionError.style.display = 'block';
+                    return;
+                }
+                paymentSelectionError.style.display = 'none';
+                
+                if (selectedPaymentMethod === 'robux') {
+                    var email = encodeURIComponent(customerEmail.value);
+                    var productTitle = 'Netflix'; // Specific product title
+                    window.location.href = `email.html?email=${email}&product=${productTitle}&method=robux`;
+                } else { // if cashapp is selected but robux button is clicked
+                    if (!tosAgreed) {
+                        openTosModal();
+                    }
                 }
             });
         })();
-    </script>
-</body>
-</html>
+</script>
