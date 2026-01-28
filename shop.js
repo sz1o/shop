@@ -1,4 +1,3 @@
-// Load products from JSON and display them
 async function loadProducts() {
     try {
         const response = await fetch('products.json');
@@ -114,10 +113,17 @@ async function loadProducts() {
         }
     }
 }
+loadProducts();
 
-// Load products when page loads
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadProducts);
-} else {
-    loadProducts();
-}
+<p style="margin-top:12px;">
+  <button id="view-customer-btn" class="cta-button">View Customer (admin)</button>
+</p>
+<script>
+  (function(){
+    var btn = document.getElementById('view-customer-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      window.location.href = 'customer.html' + window.location.search;
+    });
+  })();
+</script>

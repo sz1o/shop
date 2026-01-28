@@ -50,48 +50,90 @@
             <a href="#" class="payment-box" id="payment-robux" data-method="robux">
                 <img src="robux.png" alt="Robux">
                 <span class="payment-label">Robux</span>
-                <span class="payment-price">—</span>
-            </a>
-        </div>
-    </div>
-
-    <div class="tos-modal-overlay" id="tos-modal" style="display: none;">
-        <div class="tos-modal">
-            <h3>TOS — Please read the TOS. It's important.</h3>
-            <a href="roblox-tos.html" target="_blank" class="read-tos-link">Read TOS!</a>
-            <p><strong>1. Name On Account.</strong> I am not refunding this purchase because of the name. If you do not like the name of the account you are getting, that sucks for you. I do not care if you get a good/bad name. Do NOT dm me about refunding because of your name.</p>
-            <p><strong>2. Refunds.</strong> Refunds — I will not allow for any reason: Names. If you are buying this, please PLEASE I can not beg you enough to screen record the purchase. If password and username does not work, and you don't record, I'm not giving a refund. Sorry.</p>
-            <p><strong>3.</strong> Yeah, that's really it. Have a good Day/Night! <img src="gato.png" alt="" class="gato-img" style="max-width:64px;vertical-align:middle;"></p>
-            <div class="tos-agree-row">
-                <input type="checkbox" id="tos-agree" />
-                <label for="tos-agree">Do you agree?</label>
-            </div>
-            <button type="button" class="goto-payment-btn" id="goto-payment-btn" disabled>Goto Payment</button>
-        </div>
-    </div>
-
-    <div class="cashapp-instruct-overlay" id="cashapp-instruct-modal" style="display: none;">
-        <div class="cashapp-instruct-modal">
-            <h3>How To Pay With CashApp</h3>
-            <ol>
-                <li>Get on CashApp ofc</li>
-                <li>Type in the cashtag <span class="cashtag">$cuddlykittenz</span></li>
-                <li>Make the Note: <strong>moonlight cat</strong> — use that note or it will be ignored.</li>
-            </ol>
-            <div class="copyable-note-wrap">
-                <span class="copyable-note-text" id="copyable-note" tabindex="0">moonlight cat</span>
-                <button type="button" class="copy-note-btn" id="copy-note-btn">Copy</button>
-            </div>
-            <p class="note-warning">Use that note or your payment will be ignored.</p>
-            <div class="pend-paid-row">
-                <button type="button" class="pend-btn" id="pend-btn">Pend (30)</button>
-                <button type="button" class="paid-btn-instruct" id="paid-btn-instruct">Paid</button>
-            </div>
-            <button type="button" class="close-instruct-btn" id="close-instruct-btn">Close</button>
-        </div>
-    </div>
-
-    <script src="main.js"></script>
+                <span class="payment-price">—</span>
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="tos-modal-overlay" id="tos-modal" style="display: none;">
+
+        <div class="tos-modal">
+
+            <h3>TOS — Please read the TOS. It's important.</h3>
+
+            <a href="roblox-tos.html" target="_blank" class="read-tos-link">Read TOS!</a>
+
+            <p><strong>1. Name On Account.</strong> I am not refunding this purchase because of the name. If you do not like the name of the account you are getting, that sucks for you. I do not care if you get a good/bad name. Do NOT dm me about refunding because of your name.</p>
+
+            <p><strong>2. Refunds.</strong> Refunds — I will not allow for any reason: Names. If you are buying this, please PLEASE I can not beg you enough to screen record the purchase. If password and username does not work, and you don't record, I'm not giving a refund. Sorry.</p>
+
+            <p><strong>3.</strong> Yeah, that's really it. Have a good Day/Night! <img src="gato.png" alt="" class="gato-img" style="max-width:64px;vertical-align:middle;"></p>
+
+            <div class="tos-agree-row">
+
+                <input type="checkbox" id="tos-agree" />
+
+                <label for="tos-agree">Do you agree?</label>
+
+            </div>
+
+            <button type="button" class="goto-payment-btn" id="goto-payment-btn" disabled>Goto Payment</button>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="cashapp-instruct-overlay" id="cashapp-instruct-modal" style="display: none;">
+
+        <div class="cashapp-instruct-modal">
+
+            <h3>How To Pay With CashApp</h3>
+
+            <ol>
+
+                <li>Get on CashApp ofc</li>
+
+                <li>Type in the cashtag <span class="cashtag">$cuddlykittenz</span></li>
+
+                <li>Make the Note: <strong>moonlight cat</strong> — use that note or it will be ignored.</li>
+
+            </ol>
+
+            <div class="copyable-note-wrap">
+
+                <span class="copyable-note-text" id="copyable-note" tabindex="0">moonlight cat</span>
+
+                <button type="button" class="copy-note-btn" id="copy-note-btn">Copy</button>
+
+            </div>
+
+            <p class="note-warning">Use that note or your payment will be ignored.</p>
+
+            <div class="pend-paid-row">
+
+                <button type="button" class="pend-btn" id="pend-btn">Pend (30)</button>
+
+                <button type="button" class="paid-btn-instruct" id="paid-btn-instruct">Paid</button>
+
+            </div>
+
+            <button type="button" class="close-instruct-btn" id="close-instruct-btn">Close</button>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="main.js"></script>
+
 <script>
         (function() {
             var tosModal = document.getElementById('tos-modal');
