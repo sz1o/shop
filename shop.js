@@ -114,16 +114,3 @@ async function loadProducts() {
     }
 }
 loadProducts();
-
-<p style="margin-top:12px;">
-  <button id="view-customer-btn" class="cta-button">View Customer (admin)</button>
-</p>
-<script>
-  (function(){
-    var btn = document.getElementById('view-customer-btn');
-    if (!btn) return;
-    btn.addEventListener('click', function () {
-      window.location.href = 'customer.html' + window.location.search;
-    });
-  })();
-</script>
