@@ -1,5 +1,3 @@
-const socket = io();
-
 const typeEl = document.getElementById("typewriter");
 const home = document.getElementById("home");
 const galleryContainer = document.getElementById("galleryContainer");
@@ -32,12 +30,12 @@ document.getElementById("closeUpdates").onclick = ()=>{
     loadGallery();
 };
 
-// === Load gallery images for all users ===
+// === Load gallery images ===
 function loadGallery(){
     galleryContainer.classList.add("show");
-    fetch("/data").then(r=>r.json()).then(data=>{
+    fetch("/api/data").then(r=>r.json()).then(data=>{
         imageGallery.innerHTML = "";
-        if(data.images.length === 0){
+        if(!data.images || data.images.length === 0){
             imageGallery.innerHTML = "<p style='color:white; font-size:1.2em;'>Nothing in stock.</p>";
         } else {
             data.images.forEach(src=>{
@@ -47,6 +45,9 @@ function loadGallery(){
                 imageGallery.appendChild(img);
             });
         }
+    }).catch(err => {
+        console.error('Error loading gallery:', err);
+        imageGallery.innerHTML = "<p style='color:white; font-size:1.2em;'>Error loading images.</p>";
     });
 }
 
