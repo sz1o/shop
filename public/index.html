@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sage's Service Stock</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="matrixCanvas"></canvas>
+
+<!-- Typewriter loading screen -->
+<div id="home">
+    <div id="typewriter"></div>
+</div>
+
+<!-- Updates box -->
+<div id="updatesBox" class="modal hidden">
+    <div class="modal-content">
+        <span id="closeUpdates" class="close">&times;</span>
+        <h2>Updates</h2>
+        <ul id="updateList">
+        <li>  RELEASED WEBSITE  </li>
+        <li> looks tuff </li>
+        <li> Join the discord!</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Gallery -->
+<div id="galleryContainer" class="hidden">
+    <div id="imageGallery"></div>
+</div>
+
+<!-- Image modal -->
+<div id="imageModal" class="modal hidden">
+    <div class="modal-content" id="modalContent">
+        <span id="closeImage" class="close">&times;</span>
+        <img id="modalImg" src="">
+        <p id="buyMsg">
+            Wanna buy this? <a href="https://forms.gle/2rrUpc3hMJPjBQaP6" target="_blank">Click here</a>
+        </p>
+    </div>
+</div>
+
+<!-- Discord icon -->
+<a href="https://discord.gg/d4AEKxcGck" target="_blank" id="discordLink">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord">
+</a>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="client.js"></script>
+</body>
+</html>
