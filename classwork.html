@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gxmes - webfishes projects</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="games-container">
+        <div class="games-header">
+            <h1>Gxmes</h1>
+            <a href="index.html" class="back-btn">← Back Home</a>
+        </div>
+        
+        <!-- Game Controls -->
+        <div class="game-controls">
+            <input type="text" id="searchBar" class="search-bar" placeholder="Search games...">
+            <div class="control-buttons">
+                <button class="control-btn" id="favFilter">
+                    <span class="star">⭐</span> Show Favorites Only
+                </button>
+                <button class="control-btn" id="randomGame">
+                    🎲 Random Game
+                </button>
+            </div>
+        </div>
+        
+        <div class="games-grid" id="gamesGrid">
+            <!-- Discord card (always first) -->
+            <div class="game-card discord-card" onclick="window.open('https://discord.gg/jewz', '_blank')">
+                <h3>Discord</h3>
+                <p>discord.gg/jewz</p>
+            </div>
+            
+            <!-- Random Game card (always second) -->
+            <div class="game-card random-card" id="randomGameCard">
+                <h3>🎲 Random Game</h3>
+                <p>Click for surprise!</p>
+            </div>
+            
+            <!-- Game cards will be dynamically added here -->
+        </div>
+    </div>
+    
+    <div class="grain"></div>
+    
+    <script src="games.js"></script>
+</body>
+</html>
